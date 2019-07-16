@@ -7,6 +7,38 @@ from colorama import init
 fullend = 0
 inputSymbols = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'w', 'x', 'y', 'z', 'u', 'i', 'v']
 
+symbolTransl = {
+	
+	'й':
+	'ц':
+	'у':
+	'к':
+	'е':
+	'н':
+	'г':
+	'ш':
+	'щ':
+	'з':
+	'ф':
+	'ы':
+	'в':
+	'а':
+	'п':
+	'р':
+	'о':
+	'л':
+	'д':
+	'я':
+	'ч':
+	'с':
+	'м':
+	'и':
+	'т':
+	ь
+
+
+}
+
 def install(module):
 	try:
 		installer = open('linker/install_modules.bat', 'r')
@@ -86,11 +118,7 @@ def styleInput(msg, get_color, *treets):
 			time.sleep(0.1)
 			break
 
-		elif hasattr(inputSymbols, key):
-			print('exvar')
-			exvar += key
-
-	return exvar
+	return var
 
 def endGame(text, ending):
 	os.system('cls')

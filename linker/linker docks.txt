@@ -1,0 +1,11 @@
+to import linker:
+
+	import os
+	import sys
+	sys.path.append(os.path.abspath('linker'))
+	import linker
+
+install(module) - installing modules. Returns error code (0 means no errors)
+styleImput(msg, *treets) - adding standart style of Somna to select form
+endGame(text, ending) - transforms message to end form of Somna
+setEndCount(num) - setting variable fullend (0 as standart)

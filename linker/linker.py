@@ -34,7 +34,7 @@ symbolTransl = {
 	'м': 'v',
 	'и': 'b',
 	'т': 'n',
-        'ь': 'm'
+    'ь': 'm'
 
 
 }
@@ -82,8 +82,43 @@ def styleInput(msg, get_color, *treets):
 	var = 1
 	exvar = ''
 
+	try:
+		while True:
+			os.system('cls')
+		
+			if get_color != 'no':
+				cprint('{}\n'.format(msg), get_color)
 
-	while True:
+			else:
+				print('{}\n'.format(msg))
+	
+			cnt = 0
+
+			for i in treets:
+				cnt += 1
+				if cnt == var:
+					cprint(i, 'grey', 'on_white')
+
+				else:
+					print(i)
+
+			print('\nCommand: {}'.format(exvar))
+			
+			key = keyboard.read_key()
+
+			if key == 'up' and var > 1:
+				var -= 1
+				exvar = str(var)
+
+			elif key == 'down' and var < len(treets):
+				var += 1
+				exvar = str(var)
+
+			elif key == 'space':
+				time.sleep(0.1)
+				break
+
+	except:
 		os.system('cls')
 		
 		if get_color != 'no':
@@ -91,32 +126,11 @@ def styleInput(msg, get_color, *treets):
 
 		else:
 			print('{}\n'.format(msg))
-	
-		cnt = 0
 
 		for i in treets:
-			cnt += 1
-			if cnt == var:
-				cprint(i, 'grey', 'on_white')
+			print(i)
 
-			else:
-				print(i)
-
-		print('\nCommand: {}'.format(exvar))
-
-		key = keyboard.read_key()
-
-		if key == 'up' and var > 1:
-			var -= 1
-			exvar = str(var)
-
-		elif key == 'down' and var < len(treets):
-			var += 1
-			exvar = str(var)
-
-		elif key == 'space':
-			time.sleep(0.1)
-			break
+		var = input('\nCommand: ')
 
 	return var
 

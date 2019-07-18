@@ -4,7 +4,9 @@ import os
 import random
 from termcolor import cprint
 from colorama import init
-from linker.linker import styleInput
+import sys
+sys.path.append(os.path.abspath('linker'))
+from linker import styleInput
 
 while True:
 	init()
@@ -39,4 +41,7 @@ while True:
 	if a == 1:
 		a = styleInput('Моды:', 'no', mods)
 
-		os.system('python\python.exe mods/{}/main.py'.format(mods[a-1]))
+		b = os.system('python\python.exe mods/{}/main.py'.format(mods[a-1]))
+
+		if b != 0:
+			os.system('python mods/{}/main.py'.format(mods[a-1]))

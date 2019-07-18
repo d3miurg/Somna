@@ -1,3 +1,5 @@
+# -*- coding: UTF8 -*-
+
 import os
 from termcolor import cprint
 import keyboard
@@ -84,8 +86,11 @@ def styleInput(msg, get_color, *treets):
 
 	try:
 		while True:
-			os.system('cls')
+			a = os.system('cls')
 		
+			if a != 0:
+				os.system('clear')
+
 			if get_color != 'no':
 				cprint('{}\n'.format(msg), get_color)
 
@@ -119,8 +124,11 @@ def styleInput(msg, get_color, *treets):
 				break
 
 	except:
-		os.system('cls')
+		a = os.system('cls')
 		
+        if a != 0:
+        	os.system('clear')
+
 		if get_color != 'no':
 			cprint('{}\n'.format(msg), get_color)
 
@@ -132,13 +140,26 @@ def styleInput(msg, get_color, *treets):
 
 		var = input('\nCommand: ')
 
-	return var
+	return int(var)
 
 def endGame(text, ending):
-	os.system('cls')
+	a = os.system('cls')
+	
+	if a != 0:
+		os.system('clear')
+
 	print(text)
 	print('Концовка {} из {}'.format(ending, fullend))
-	os.system('pause')
+	
+	a = os.system('pause')
+
+	if a != 0:
+		os.system('clear')
+		print(text)
+		print('Концовка {} из {}'.format(ending, fullend))
+		
+		os.system('./linker/linux/buttonAwait.sh')
+
 	time.sleep(0.2)
 
 def setEndCount(num):

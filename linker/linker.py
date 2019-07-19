@@ -125,9 +125,9 @@ def styleInput(msg, get_color, *treets):
 
 	except:
 		a = os.system('cls')
-		
-        if a != 0:
-        	os.system('clear')
+
+		if a != 0:
+			os.system('clear')
 
 		if get_color != 'no':
 			cprint('{}\n'.format(msg), get_color)

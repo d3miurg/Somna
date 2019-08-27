@@ -7,39 +7,6 @@ import time
 from colorama import init
 
 fullend = 0
-inputSymbols = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'w', 'x', 'y', 'z', 'u', 'i', 'v']
-
-symbolTransl = {
-	
-	'й': 'q',
-	'ц': 'w',
-	'у': 'e',
-	'к': 'r',
-	'е': 't',
-	'н': 'y',
-	'г': 'u',
-	'ш': 'i',
-	'щ': 'o',
-	'з': 'p',
-	'ф': 'a',
-	'ы': 's',
-	'в': 'd',
-	'а': 'f',
-	'п': 'g',
-	'р': 'h',
-	'о': 'j',
-	'л': 'k',
-	'д': 'l',
-	'я': 'z',
-	'ч': 'x',
-	'с': 'c',
-	'м': 'v',
-	'и': 'b',
-	'т': 'n',
-    'ь': 'm'
-
-
-}
 
 def install(module):
 	try:
@@ -82,7 +49,7 @@ def styleInput(msg, get_color, *treets):
 	init()
 	
 	var = 1
-	exvar = ''
+	exvar = '1'
 
 	try:
 		while True:
@@ -90,6 +57,9 @@ def styleInput(msg, get_color, *treets):
 		
 			if a != 0:
 				os.system('clear')
+
+			else:
+				pass
 
 			if get_color != 'no':
 				cprint('{}\n'.format(msg), get_color)
@@ -112,22 +82,29 @@ def styleInput(msg, get_color, *treets):
 			key = keyboard.read_key()
 
 			if key == 'up' and var > 1:
+				time.sleep(0.1)
 				var -= 1
 				exvar = str(var)
 
 			elif key == 'down' and var < len(treets):
+				time.sleep(0.1)
 				var += 1
 				exvar = str(var)
 
-			elif key == 'space':
+			elif key == 'enter':
 				time.sleep(0.1)
 				break
 
-	except:
-		a = os.system('cls')
+			elif key == 'backspace':
+				exvar = exvar[:-1]
+				time.sleep(0.1)
 
-		if a != 0:
-			os.system('clear')
+			elif key != 'up' and key != 'down':
+				exvar += key
+				time.sleep(0.1)
+
+	except ImportError:
+		os.system('clear')
 
 		if get_color != 'no':
 			cprint('{}\n'.format(msg), get_color)
@@ -138,9 +115,12 @@ def styleInput(msg, get_color, *treets):
 		for i in treets:
 			print(i)
 
-		var = input('\nCommand: ')
+		exvar = input('\nCommand: ')
 
-	return int(var)
+	if exvar == 'exit':
+		raise ImportError('exit')
+
+	return var
 
 def endGame(text, ending):
 	a = os.system('cls')

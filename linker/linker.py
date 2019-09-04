@@ -8,6 +8,21 @@ from colorama import init
 
 fullend = 0
 
+var = 1 
+exvar = '1'
+
+def uparrow():
+
+	global var
+
+	time.sleep(0.1)
+	var -= 1
+	exvar = str(var)
+	print('up')
+
+def preload():
+	keyboard.add_hotkey('up', uparrow)
+
 def install(module):
 	try:
 		installer = open('linker/install_modules.bat', 'r')
@@ -46,9 +61,9 @@ def install(module):
 		return 1
 
 def styleInput(msg, get_color, *treets):
-	init()
-	
-	var = 1
+	init()	
+
+	var = 1 
 	exvar = '1'
 
 	try:
@@ -81,12 +96,12 @@ def styleInput(msg, get_color, *treets):
 			
 			key = keyboard.read_key()
 
-			if key == 'up' and var > 1:
-				time.sleep(0.1)
-				var -= 1
-				exvar = str(var)
+			#if key == 'up' and var > 1:
+				#time.sleep(0.1)
+				#var -= 1
+				#exvar = str(var)
 
-			elif key == 'down' and var < len(treets):
+			if key == 'down' and var < len(treets):
 				time.sleep(0.1)
 				var += 1
 				exvar = str(var)

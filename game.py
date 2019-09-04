@@ -3,13 +3,13 @@
 import os
 import random
 from termcolor import cprint
-from colorama import init
 import sys
 sys.path.append(os.path.abspath('linker'))
 from linker import styleInput
+from linker import preload
 
 while True:
-	init()
+	preload()
 
 	mods = os.listdir('mods')
 

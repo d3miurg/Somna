@@ -63,6 +63,9 @@ def install(module):
 def styleInput(msg, get_color, *treets):
 	init()	
 
+	global var
+	global exvar
+
 	var = 1 
 	exvar = '1'
 
@@ -125,10 +128,7 @@ def styleInput(msg, get_color, *treets):
 			cprint('{}\n'.format(msg), get_color)
 
 		else:
-			print('{}\n'.format(msg))
-
-		for i in treets:
-			print(i)
+			print('{}\n'.format(msg))                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 
 		exvar = input('\nCommand: ')
 
